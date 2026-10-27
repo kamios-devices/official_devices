@@ -1,0 +1,27 @@
+=== October 27, 2026 ===
+• Intial kamiOs 1.1 Beta
+- Rebuilt the performance stack around the sm8635 PowerHAL: GAME, screen-off, camera, fingerprint, expensive rendering and launch hints with WALT, DDR and bus tunables
+- Added ADPF profiles and enabled the ADPF refresh rate hint for smoother frame pacing
+- Moved display composer to a dedicated cpuset so composition stays on performance cores while gaming and drops to efficiency cores on screen off
+- Added WALT heavy-task colocation and retuned task placement, uclamps and cpu shares
+- Moved Silver input boost to the most power-efficient step and dropped the legacy WALT input boost
+- Reverted the custom PELT half-life, util ramp-up, capacity update and prime-core isolation patches, returning to stock PELT scheduling
+- Kept util-aware TEO idle state selection but dropped the extra tick-stop and intercept tweaks in cpuidle
+- Reverted the 50ms devfreq polling interval
+- Reworked suspend and wakelocks: indefinite wake locks no longer time out, 5s freeze timeout, dropped the 120s wakelock killer and fingerprintd thaw hack
+- Dropped INIT_ON_FREE and connector/proc events from the kernel config to cut memory and tracing overhead
+- Optimized UFS read-ahead for faster game asset streaming
+- Tuned vm watermark scaling and removed redundant kswapd/input boost writes to cut memory reclaim spikes
+- Dialled back GAME-mode bandwidth voting and UI boost caps, and fixed uclamp values
+- Set minimum HWC SF duration to 8.4ms, disabled GL backpressure and auto latch unsignaled for steadier composition
+- Imported the stock auto brightness curve, reduced blur radius and enabled additional overlays
+- Enabled suspend to RAM, disabled iorapd and added the Qualcomm GPU driver and hardware rendering props
+- Bypass charging: added the QS tile and switch, multi-thermal bypass support and a guard check, moved charge mode enforcement to a native daemon
+- Smoothed the charge curve, refined battery logic and addressed charging denials
+- GameBar: refined the UI, wired it into main settings and fixed the tile crash and power profile update logic
+- Renamed the power profile modes and dropped the HTSR and refresh rate parts
+- Dropped Capture Logs from parts, double tap now routes to FPS recording
+- Increased volume steps, added missing media properties and pulled our own ViPER4AndroidFX
+- Updated the WFD stack from marvel_g and the display config to use the product config
+- Hid auxiliary cameras from other apps in MIUI Camera
+- Patched the display composer service to join the hal-display cpuset
