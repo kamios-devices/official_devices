@@ -1,0 +1,13 @@
+{
+  "name": "POCO F6",
+  "soc": "Snapdragon 8s Gen 3",
+  "cpu": "1x 3.0 GHz + 4x 2.8 GHz + 3x 2.0 GHz",
+  "gpu": "Adreno 735",
+  "display": "6.67\" AMOLED",
+  "resolution": "1220 × 2712",
+  "refresh": "120 Hz",
+  "battery": "5000 mAh",
+  "charging": "90 W",
+  "camera": "50 + 8 MP",
+  "front": "20 MP"
+}
